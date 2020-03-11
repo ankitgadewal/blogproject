@@ -4,7 +4,11 @@ from .models import Blogs
 # Create your views here.
 def blog(request):
     allposts = Blogs.objects.all()
-    return render(request, 'blog.html', {'allposts': allposts})
+    print(allposts)
+    # onepost = Blogs.objects.filter(title__icontains='django')
+    onepost = Blogs.objects.get(id=8)
+    print(onepost)
+    return render(request, 'blog.html', {'allposts': allposts, 'onepost': onepost})
 
 def index(request):
     return render(request, 'index.html')
