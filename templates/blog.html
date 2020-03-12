@@ -31,6 +31,7 @@
           font-size: 3.5rem;
         }
       }
+
     </style>
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
@@ -59,15 +60,16 @@
   {%for post in allposts%}
       <div class="col-12">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
+        <div class="col p-4 d-flex flex-column position-static" style="background-color:white;">
           <strong class="d-inline-block mb-2 text-primary"></strong>
+<!--          <img src="../media/Desert.jpg" class="card-img-top">-->
           <h3 class="mb-0">{{post.title}}</h3>
           <div class="mb-1 text-muted">{{post.datetime}}</div>
-          <p class="card-text mb-auto">{{post.description}}</p>
+          <p class="card-text mb-auto">{{post.description|truncatechars:200}}</p>
           <a href="#" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+<!--          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>-->
         </div>
       </div>
     </div>
