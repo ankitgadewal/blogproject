@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Blogs
+from django.contrib import messages
 
 # Create your views here.
 def blog(request):
@@ -13,7 +14,7 @@ def index(request):
 
 def search(request):
     query = request.GET['query']
-    if len(query) > 50:
+    if len(query) > 50 or len(query)<1:
         allposts = []
     else:
         allposts = Blogs.objects.filter(title__icontains=query).union(Blogs.objects.filter(description__icontains=query))
