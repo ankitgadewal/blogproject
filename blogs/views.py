@@ -4,7 +4,7 @@ from .models import Blogs
 # Create your views here.
 def blog(request):
     allposts = Blogs.objects.all()
-    onepost = Blogs.objects.get(id=8)
+    onepost = Blogs.objects.filter().first()
     return render(request, 'blog.html', {'allposts': allposts, 'onepost': onepost})
 
 def index(request):
