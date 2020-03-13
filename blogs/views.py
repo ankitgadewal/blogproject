@@ -18,3 +18,8 @@ def search(request):
     else:
         allposts = Blogs.objects.filter(title__icontains=query).union(Blogs.objects.filter(description__icontains=query))
     return render(request, 'search.html', {'allposts': allposts, 'query': query})
+
+def blogpost(request, slug):
+    allposts = Blogs.objects.filter(slug=slug)
+    print(allposts)
+    return render(request, 'blogpost.html', {'allposts':allposts})

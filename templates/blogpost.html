@@ -1,0 +1,14 @@
+{%extends 'base.html'%}
+{% block body %}
+  {% for post in allposts %}
+<div class="container my-4">
+<div class="jumbotron">
+  <h1 class="display-4">{{post.title}}</h1>
+  <p class="lead">{{post.datetime}}</p>
+  <hr class="my-4">
+  <p>{{post.description}}</p>
+  <a class="btn btn-primary btn-sm" href="/blog" role="button">Go to Blog</a>
+</div>
+    </div>
+  {% endfor %}
+{% endblock body %}
