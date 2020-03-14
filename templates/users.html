@@ -1,27 +1,52 @@
 {% extends 'base.html' %}
 {% block body %}
 <div class="container my-3">
-    <h2>User Login Form</h2>
-<form method="POST" action="/users/" style="background-color:white; padding:50px;">
-    {% csrf_token %}
-      <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  <div class="row">
+    <div class="col-6">
+    <h2>Register Here</h2>
+          <form method="POST" action="register" style="background-color:white; padding:50px;">
+                {% csrf_token %}
+
+                  <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" aria-describedby="emailHelp" name="username" id="username" placeholder="Choose a unique username">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Email address">
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Choose a Strong Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="confpassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="confpassword" name="confpassword" placeholder="re-enter password">
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="number" class="form-control" aria-describedby="emailHelp" name="phone" id="phone" placeholder="your mobile number">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
       </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+
+    <div class="col-6">
+    <h2>Login Here</h2>
+          <form method="POST" action="userlogin" style="background-color:white; padding:50px;">
+                {% csrf_token %}
+
+                  <div class="form-group">
+                    <label for="loginusername">Username</label>
+                    <input type="text" class="form-control" aria-describedby="emailHelp" name="loginusername" id="loginusername" placeholder="Enter username">
+                  </div>
+                  <div class="form-group">
+                    <label for="loginpassword">Login Password</label>
+                    <input type="password" class="form-control" id="loginpassword" name="loginpassword" placeholder="Enter your Password">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
       </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Phone Number</label>
-        <input type="number" class="form-control" aria-describedby="emailHelp" name="phone">
-      </div>
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
 </div>
 {% endblock body %}

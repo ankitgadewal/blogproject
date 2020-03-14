@@ -6,8 +6,7 @@ class Blogs(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     datetime = models.DateTimeField(default=datetime.now(), blank=True)
-    slug = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='media')
+    slug = models.CharField(max_length=200, default='myblog')
 
     def __str__(self):
         return self.title

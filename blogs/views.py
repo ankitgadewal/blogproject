@@ -22,5 +22,4 @@ def search(request):
 
 def blogpost(request, slug):
     allposts = Blogs.objects.filter(slug=slug)
-    print(allposts)
     return render(request, 'blogpost.html', {'allposts':allposts})
