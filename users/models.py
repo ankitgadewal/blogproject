@@ -11,3 +11,11 @@ class Users(models.Model):
 
     def __str__(self):
         return self.username
+
+class NewBlog(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    slug = models.CharField(max_length=200, default='myblog')
+
+    def __str__(self):
+        return self.title

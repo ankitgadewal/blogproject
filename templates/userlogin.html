@@ -1,29 +1,27 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<div class="container col-6 my-4">
-<form action="newblog" method="post">
-  {% csrf_token %}
+<div class="container">
+  <div class="col-6 my-4"><h2>Add a post</h2>
+    <form action="newblog" method="post">
+      {% csrf_token %}
 
-  <div class="form-group">
-    <label for="title">Title</label>
-    <textarea class="form-control" id="title" name="title" rows="1"></textarea>
-  </div>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <textarea class="form-control" id="title" name="title" rows="1"></textarea>
+      </div>
 
-    <div class="form-group">
-    <label for="description">Description</label>
-    <textarea class="form-control" id="description" name="description" rows="4"></textarea>
-  </div>
+        <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+      </div>
 
-  <div class="form-group">
-    <label for="slug">Slug is optional</label>
-    <textarea class="form-control" id="slug" name="slug" rows="1" placeholder="default will be blog"></textarea>
-  </div>
-
-  <div>
-    <a href="#">Publish Your Post</a>
-  </div>
-  </form>
-
+      <div class="form-group">
+        <label for="slug">Slug is optional</label>
+        <textarea class="form-control" id="slug" name="slug" rows="1" placeholder="default will be blog"></textarea>
+      </div>
+        <button type="submit" class="btn btn-primary">Publish your post</button>
+      </form>
+    </div>
   </div>
 {% endblock body %}
