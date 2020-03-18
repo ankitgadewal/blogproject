@@ -18,10 +18,13 @@ from django.urls import path
 from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
     path('', include('blogs.urls')),
     path('search/', include('blogs.urls')),
+    path('comment', views.comment, name='comment')
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

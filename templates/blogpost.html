@@ -7,6 +7,21 @@
   <p class="lead">{{post.datetime}}</p>
   <hr class="my-4">
   <p>{{post.description}}</p>
+
+
+
+  <div class="col-6 my-4"><h2>Add a Comment</h2>
+
+    <form action="/comment" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="comment">Your Comment</label>
+        <textarea class="form-control" id="comment" name="comment" rows="4"></textarea>
+        <button class="btn btn-primary my-3" type="submit">Post Your Comment</button>
+      </div>
+    </form>
+    
+
   <a class="btn btn-primary btn-sm" href="/blog" role="button">Go to Blog</a>
 </div>
     </div>

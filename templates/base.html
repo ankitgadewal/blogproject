@@ -30,17 +30,16 @@
         <form class="form-inline my-2 my-lg-0" action="/search" method="get">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="query" id="query">
           <button class="btn btn-outline-primary my-2 my-sm-0 mr-2" type="submit">Search</button>
-
-          {% if loginuser.is_authenticated %}
-          <p style="color:white;">welcome {{loginuser}} <a href="userlogout">logout</a></p>
-
-
-          {% else %}
-            </form>
+        </form>
+            
+        
+            {% if loginuser.is_authenticated %}
+            <p style="color:white;">welcome {{loginuser}} <a href="userlogout">logout</a></p>
+            {% else %}
             <a href="/users"><button class="btn btn-primary">Login</button></a>
-          {% endif %}
-
+            {% endif %}
       </div>
+
     </nav>
 {% for message in messages %}
       <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">

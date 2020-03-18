@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from .models import Users, NewBlog
+from .models import NewBlog
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import HttpResponse, render, redirect
-# from blogs.models import Blogs
+from blogs.models import Blogs
 from django.contrib import messages
+
 # Create your views here.
 def users(request):
     if request.method == 'POST':
@@ -63,5 +64,8 @@ def newblog(request):
         description = request.POST['description']
         slug = request.POST['slug']
 
-        userblog = NewBlog(title=title, description=description, slug= slug)
-        userblog.save()
+        Blogs(title=title, description=description, slug=slug).save()
+        messages.success(request, "your post has been posted successfully!!! you can now see it on blog page")
+        return render(request, 'postadded.html')
+
+
