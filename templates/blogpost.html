@@ -20,6 +20,17 @@
         <button class="btn btn-primary my-3" type="submit">Post Your Comment</button>
       </div>
     </form>
+
+    <h3>recent comments</h3>
+    {% for comment in allcomments %}
+    <div class="card border-primary mb-3" style="max-width: 18rem;">
+      <div class="card-header">{{comment.datetime}}</div>
+      <div class="card-body text-primary">
+        <p class="card-title">comment by {{comment.userid}}</p>
+        <p class="card-text">{{comment.comment}}</p>
+      </div>
+    </div>
+    {% endfor %}
     
 
   <a class="btn btn-primary btn-sm" href="/blog" role="button">Go to Blog</a>

@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import Blogs, Comment
 from django.contrib import messages
+from users.views import userlogin
 
 # Create your views here.
 def blog(request):
@@ -22,7 +23,8 @@ def search(request):
 
 def blogpost(request, slug):
     allposts = Blogs.objects.filter(slug=slug)
-    return render(request, 'blogpost.html', {'allposts':allposts})
+    allcomments = Comment.objects.all()
+    return render(request, 'blogpost.html', {'allposts':allposts, 'allcomments':allcomments})
 
 def comment(request):
     if request.method == 'POST':
