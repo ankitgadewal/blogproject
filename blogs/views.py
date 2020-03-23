@@ -5,13 +5,21 @@ from users.views import userlogin
 
 # Create your views here.
 def blog(request):
-    allposts = Blogs.objects.all()
-    onepost = Blogs.objects.filter().first()
+    allposts = Blogs.objects.all().values()
+    onepost = allposts.reverse().first()
+    # print(allposts[5]['title'])
+    # onepost = Blogs.objects.filter().first()
+    allposts = allposts[::-1]
     return render(request, 'blog.html', {'allposts': allposts, 'onepost': onepost})
 
 def index(request):
-    allposts = Blogs.objects.all()
+    allposts = Blogs.objects.all().values()
+    allposts = allposts[::-1]
     return render(request, 'index.html', {'allposts': allposts})
+
+def indexlatest(request, slug):
+    allposts = Blogs.objects.filter(slug=slug)
+    return render(request, 'blogpost.html', {'allposts':allposts})
 
 def search(request):
     query = request.GET['query']
