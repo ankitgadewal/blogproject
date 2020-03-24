@@ -41,9 +41,9 @@
   <body>
   <div class="container">
   <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark my-4">
-    <div class="col-md-6 px-0">
-      <h1 class="display-4 font-italic">{{onepost.title}}</h1>
-      <p class="lead my-3">{{onepost.description|truncatechars:200}}</p>
+    <div class="col-md-12 px-1">
+      <h1 class="font-italic">{{onepost.title}}</h1>
+      <p class="lead my-3">{{onepost.description|truncatechars:250}}</p>
       <div class="mb-1 text-muted">{{onepost.datetime}}</div>
       <p class="lead mb-0"><a href="{{onepost.slug}}" class="text-white font-weight-bold">Continue reading...</a></p>
     </div>
@@ -58,19 +58,23 @@
         From BlogPosts
       </h3>
   {%for post in allposts%}
+      {% if post.id != onepost.id %}
       <div class="col-12">
       <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
         <div class="col p-4 d-flex flex-column position-static" style="background-color:white;">
           <strong class="d-inline-block mb-2 text-primary"></strong>
-          <h3 class="mb-0">{{post.title}}</h3>
+          <img src="{{post.image}}" class="card-img-top" alt="image" style="height:40vh;">
+          <h3 class="mb-0 my-2">{{post.title}}</h3>
           <div class="mb-1 text-muted">{{post.datetime}}</div>
-          <p class="card-text mb-auto">{{post.description|truncatechars:200}}</p>
+          <p class="card-text mb-auto">{{post.description|truncatechars:300}}</p>
           <a href="{{post.slug}}" class="stretched-link">Continue reading</a>
         </div>
         <div class="col-auto d-none d-lg-block">
         </div>
       </div>
     </div>
+      {% endif %}
+
       {% endfor %}
 
 
